@@ -3,10 +3,10 @@
  *
  * Usage (consumer's tailwind.config.{ts,js}):
  *
- *   import preset from 'impai/preset';
+ *   import preset from 'react-impai/preset';
  *   export default {
  *     presets: [preset],
- *     content: ['./src/**\/*.{ts,tsx}', './node_modules/impai/dist/**\/*.{mjs,cjs}'],
+ *     content: ['./src/**\/*.{ts,tsx}', './node_modules/react-impai/dist/**\/*.{mjs,cjs}'],
  *   };
  *
  * Design notes:

@@ -1,16 +1,16 @@
-# impai
+# react-impai
 
 > Headless React components and hooks for streaming AI features. **One import, AI-ready in 5 minutes.**
 
-[![npm version](https://img.shields.io/npm/v/impai.svg)](https://www.npmjs.com/package/impai)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/impai)](https://bundlephobia.com/package/impai)
-[![license](https://img.shields.io/npm/l/impai.svg)](./LICENSE)
+[![npm version](https://img.shields.io/npm/v/react-impai.svg)](https://www.npmjs.com/package/react-impai)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/react-impai)](https://bundlephobia.com/package/react-impai)
+[![license](https://img.shields.io/npm/l/react-impai.svg)](./LICENSE)
 [![CI](https://github.com/khs990704/impai/actions/workflows/ci.yml/badge.svg)](https://github.com/khs990704/impai/actions/workflows/ci.yml)
 
-`impai` provides production-ready, accessible, headless React components for AI features — chat, summarisation, and more — backed by pluggable adapters for OpenAI and locally hosted models (Ollama). Streaming, cancellation, persistence, and a11y are handled for you. Visual styling is yours.
+`react-impai` provides production-ready, accessible, headless React components for AI features — chat, summarisation, and more — backed by pluggable adapters for OpenAI and locally hosted models (Ollama). Streaming, cancellation, persistence, and a11y are handled for you. Visual styling is yours.
 
 - **Headless** — components ship logic + ARIA + `data-*` attributes only. Bring your own CSS / Tailwind / shadcn.
-- **Zero-config** — `localStorage` persistence, sensible defaults, optional Tailwind preset via `impai/preset`.
+- **Zero-config** — `localStorage` persistence, sensible defaults, optional Tailwind preset via `react-impai/preset`.
 - **Streaming-first** — Server-Sent Events (OpenAI) and NDJSON (Ollama) parsed into a uniform `StreamChunk` async-iterable.
 - **Type-safe** — TypeScript strict, discriminated `engine` unions, full `.d.ts` exports (ESM + CJS dual).
 - **Tree-shakeable** — `sideEffects: false`, gzip < 15 KB core.
@@ -44,11 +44,11 @@
 ## Install
 
 ```bash
-npm install impai @tanstack/react-query
+npm install react-impai @tanstack/react-query
 # or
-pnpm add impai @tanstack/react-query
+pnpm add react-impai @tanstack/react-query
 # or
-yarn add impai @tanstack/react-query
+yarn add react-impai @tanstack/react-query
 ```
 
 `react`, `react-dom` (>=18) and `@tanstack/react-query` (>=5) are peer dependencies — bring your own.
@@ -56,7 +56,7 @@ yarn add impai @tanstack/react-query
 ## Quickstart (5 minutes)
 
 ```tsx
-import { AiProvider, AiChat } from 'impai';
+import { AiProvider, AiChat } from 'react-impai';
 
 export default function App() {
   return (
@@ -87,7 +87,7 @@ That's it — `<AiChat>` renders a streaming chat surface, persists history to `
 `<AiProvider>` is the root that selects the engine (OpenAI or local Ollama), wires up a `QueryClient`, and validates security gates.
 
 ```tsx
-import { AiProvider } from 'impai';
+import { AiProvider } from 'react-impai';
 
 <AiProvider
   engine="openai"
@@ -112,7 +112,7 @@ import { AiProvider } from 'impai';
 Headless streaming chat. Renders a list of messages, a composer, and an error banner — no colours, fonts, or spacing baked in.
 
 ```tsx
-import { AiChat } from 'impai';
+import { AiChat } from 'react-impai';
 
 <AiChat
   sessionId="support"             // separate persistence bucket
@@ -150,7 +150,7 @@ Style hooks (the headless contract):
 Click → summarise → popover with the result. Supports Copy and Re-summarise out of the box.
 
 ```tsx
-import { AiSummaryButton } from 'impai';
+import { AiSummaryButton } from 'react-impai';
 
 <AiSummaryButton
   input={selectedText}
@@ -177,7 +177,7 @@ Use the `render` prop to fully replace the popover:
 Components are thin wrappers over hooks. If you want full control, drop the components and use the hooks directly.
 
 ```tsx
-import { useAiChat } from 'impai';
+import { useAiChat } from 'react-impai';
 
 function MyChat() {
   const { messages, send, cancel, isStreaming, error } = useAiChat({
@@ -198,7 +198,7 @@ function MyChat() {
 ```
 
 ```tsx
-import { useAiSummary } from 'impai';
+import { useAiSummary } from 'react-impai';
 
 const { summarize, loading, error, result } = useAiSummary({
   prompt: 'Three sentences.',
@@ -212,7 +212,7 @@ await summarize(article); // returns string; also sets `result`
 Switch the provider — same components, same hooks.
 
 ```tsx
-import { AiProvider, AiChat } from 'impai';
+import { AiProvider, AiChat } from 'react-impai';
 
 <AiProvider
   engine="local"
@@ -234,13 +234,13 @@ The preset is **opt-in**. Without it, you style components by writing CSS agains
 
 ```ts
 // tailwind.config.ts
-import preset from 'impai/preset';
+import preset from 'react-impai/preset';
 
 export default {
   presets: [preset],
   content: [
     './src/**/*.{ts,tsx}',
-    './node_modules/impai/dist/**/*.{mjs,cjs}',
+    './node_modules/react-impai/dist/**/*.{mjs,cjs}',
   ],
 };
 ```
@@ -262,7 +262,7 @@ Theme by overriding the CSS variables:
 By default, `<AiChat>` (and `useAiChat`) persist to `localStorage` under a key derived from `sessionId`. Customise persistence by swapping the storage adapter:
 
 ```tsx
-import { AiProvider, memoryStorageAdapter } from 'impai';
+import { AiProvider, memoryStorageAdapter } from 'react-impai';
 
 <AiProvider engine="openai" config={cfg} storage={memoryStorageAdapter}>
   {/* …in-memory only — useful for tests / SSR */}
@@ -285,7 +285,7 @@ return <button onClick={cancel} disabled={!isStreaming}>Stop</button>;
 All adapter errors extend `AiError`:
 
 ```tsx
-import { AiError, AuthError, RateLimitError, NetworkError, AbortError } from 'impai';
+import { AiError, AuthError, RateLimitError, NetworkError, AbortError } from 'react-impai';
 
 try {
   await summarize(text);
@@ -346,7 +346,7 @@ app.post('/api/ai', async (req, res) => {
 app.listen(3000);
 ```
 
-That's the entire backend contract — `impai` already speaks the OpenAI Chat Completions wire format.
+That's the entire backend contract — `react-impai` already speaks the OpenAI Chat Completions wire format.
 
 ## What's included (0.1.0)
 
@@ -377,7 +377,7 @@ import {
   // errors
   AiError, AuthError, RateLimitError, UpstreamError,
   NetworkError, LocalEngineUnavailable, AbortError,
-} from 'impai';
+} from 'react-impai';
 
 import type {
   Message, Role, ContentPart,
@@ -385,13 +385,13 @@ import type {
   Adapter, ChatRequest,
   Engine, EngineConfig, OpenAIConfig, LocalConfig,
   ChatSession, StorageAdapter,
-} from 'impai';
+} from 'react-impai';
 ```
 
 The Tailwind preset has its own subpath:
 
 ```ts
-import preset from 'impai/preset';
+import preset from 'react-impai/preset';
 ```
 
 ## Compatibility
@@ -419,4 +419,4 @@ Project planning artifacts live alongside the code:
 
 ## License
 
-[MIT](./LICENSE) © 2026 impai contributors
+[MIT](./LICENSE) © 2026 react-impai contributors

@@ -1,5 +1,5 @@
 {
-  "name": "impai",
+  "name": "react-impai",
   "version": "0.1.0-alpha.0",
   "description": "Headless React components and hooks for streaming AI features. Zero-config with proxy-or-direct OpenAI and Ollama adapters.",
   "type": "module",

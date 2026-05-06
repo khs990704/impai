@@ -3,7 +3,16 @@
     "allow": [
       "Bash(node *)",
       "Bash(npm test *)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash(npm pack *)",
+      "Bash(npm whoami *)",
+      "Bash(npm config *)",
+      "Bash(npm publish *)",
+      "Bash(npm view *)",
+      "Bash(rtk proxy *)",
+      "Bash(rm -f /Users/heesubkim/project/impai/impai-react-*.tgz)",
+      "Bash(rm -rf /tmp/tmp.*)",
+      "Bash(echo \"exit=$?\")"
     ]
   }
 }

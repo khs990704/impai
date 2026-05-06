@@ -19,7 +19,7 @@ jobs:
     timeout-minutes: 20
     environment:
       name: npm-publish
-      url: https://www.npmjs.com/package/impai
+      url: https://www.npmjs.com/package/react-impai
 
     # Required for npm provenance (OIDC) + writing release notes.
     permissions:
