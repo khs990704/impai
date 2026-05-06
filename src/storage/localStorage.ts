@@ -77,7 +77,7 @@ export class LocalStorageAdapter implements StorageAdapter {
         this.warnedUnavailable = true;
         // eslint-disable-next-line no-console
         console.warn(
-          '[@org/ai-react] localStorage unavailable. Persistence is disabled.',
+          '[impai] localStorage unavailable. Persistence is disabled.',
         );
       }
     }
@@ -139,7 +139,7 @@ export class LocalStorageAdapter implements StorageAdapter {
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error(
-        `[@org/ai-react] JSON.stringify failed for storage key '${key}'`,
+        `[impai] JSON.stringify failed for storage key '${key}'`,
         err,
       );
       return;
@@ -215,7 +215,7 @@ export class LocalStorageAdapter implements StorageAdapter {
     } catch (err) {
       // eslint-disable-next-line no-console
       console.warn(
-        `[@org/ai-react] localStorage.setItem failed for '${key}' (quota?).`,
+        `[impai] localStorage.setItem failed for '${key}' (quota?).`,
         err,
       );
     }

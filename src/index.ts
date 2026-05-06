@@ -1,5 +1,5 @@
 /**
- * Public barrel — `@org/ai-react`.
+ * Public barrel — `impai`.
  *
  * Per _workspace/02_api_spec.md §A.0. Keep this list in sync with that doc.
  * `useAdapter` and `AiContext` are intentionally internal.

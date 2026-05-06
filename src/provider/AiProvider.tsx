@@ -70,7 +70,7 @@ function assertOpenAiSecurity(config: OpenAIConfig): void {
     // dev: warn so demos still work but the user is alerted.
     // eslint-disable-next-line no-console
     console.warn(
-      '[@org/ai-react] OpenAIConfig has neither apiKey nor proxyUrl. Requests will fail.',
+      '[impai] OpenAIConfig has neither apiKey nor proxyUrl. Requests will fail.',
     );
   }
 }

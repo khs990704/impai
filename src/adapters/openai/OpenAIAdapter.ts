@@ -79,7 +79,7 @@ function validateOpenAIConfig(config: OpenAIConfig): void {
   // dev: warn but do not throw — first call will fail with 401 from upstream.
   // eslint-disable-next-line no-console
   console.warn(
-    '[@org/ai-react] OpenAIConfig has neither proxyUrl nor apiKey. Calls will fail.',
+    '[impai] OpenAIConfig has neither proxyUrl nor apiKey. Calls will fail.',
   );
 }
 

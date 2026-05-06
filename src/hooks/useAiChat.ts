@@ -260,7 +260,7 @@ export function useAiChat(opts: UseAiChatOptions = {}): UseAiChatReturn {
     Error,
     string
   >({
-    mutationKey: ['ai-react', 'chat', ctx.adapter.id, sessionId],
+    mutationKey: ['impai', 'chat', ctx.adapter.id, sessionId],
     mutationFn: async (text: string) => {
       // Build user + assistant placeholder messages.
       const userMsg: Message = {

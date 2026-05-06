@@ -1,12 +1,12 @@
 /**
- * Tailwind preset for `@org/ai-react`.
+ * Tailwind preset for `impai`.
  *
  * Usage (consumer's tailwind.config.{ts,js}):
  *
- *   import preset from '@org/ai-react/preset';
+ *   import preset from 'impai/preset';
  *   export default {
  *     presets: [preset],
- *     content: ['./src/**\/*.{ts,tsx}', './node_modules/@org/ai-react/dist/**\/*.{mjs,cjs}'],
+ *     content: ['./src/**\/*.{ts,tsx}', './node_modules/impai/dist/**\/*.{mjs,cjs}'],
  *   };
  *
  * Design notes:

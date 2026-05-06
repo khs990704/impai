@@ -136,7 +136,7 @@ export function migrateValue<T>(
       futureWarned.add(memoKey);
       // eslint-disable-next-line no-console
       console.warn(
-        `[@org/ai-react] Storage payload at '${originalKey}' has schemaVersion ${probe.version} which is newer than supported (${CURRENT_SCHEMA_VERSION}). The library will not downgrade — value ignored. Upgrade @org/ai-react to use this data.`,
+        `[impai] Storage payload at '${originalKey}' has schemaVersion ${probe.version} which is newer than supported (${CURRENT_SCHEMA_VERSION}). The library will not downgrade — value ignored. Upgrade impai to use this data.`,
       );
     }
     return { value: null, migrated: false };
@@ -171,7 +171,7 @@ export function migrateValue<T>(
   } catch (err) {
     // eslint-disable-next-line no-console
     console.warn(
-      `[@org/ai-react] Migration failed for '${originalKey}'. Backup preserved at '${backupKey}'.`,
+      `[impai] Migration failed for '${originalKey}'. Backup preserved at '${backupKey}'.`,
       err,
     );
     return { value: null, migrated: true, backupKey };

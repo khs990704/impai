@@ -1,9 +1,9 @@
 /**
- * Public types barrel for `@org/ai-react`.
+ * Public types barrel for `impai`.
  *
  * Domain types are owned by backend-dev (`src/adapters/**`, `src/storage/**`).
  * This file re-exports the canonical type signatures defined across the
- * library so consumers can `import type { Message } from '@org/ai-react'`.
+ * library so consumers can `import type { Message } from 'impai'`.
  *
  * Source-of-truth files (per _workspace/03_db_schema.md §2):
  *   - message.ts          → Role, ContentPart, Message

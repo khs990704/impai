@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 
 /**
- * Vite library mode build for `@org/ai-react`.
+ * Vite library mode build for `impai`.
  *
  * - Two entrypoints: `src/index.ts` (main) + `src/preset/tailwind.ts` (Tailwind preset).
  * - Dual output: ESM (.mjs) + CJS (.cjs) per entry.

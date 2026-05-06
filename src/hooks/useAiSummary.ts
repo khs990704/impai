@@ -33,7 +33,7 @@ export function useAiSummary(opts: UseAiSummaryOptions = {}): UseAiSummaryReturn
   const [result, setResult] = useState<string | null>(null);
 
   const mutation = useMutation<string, Error, string>({
-    mutationKey: ['ai-react', 'summary', ctx.adapter.id],
+    mutationKey: ['impai', 'summary', ctx.adapter.id],
     mutationFn: async (input: string) => {
       const ac = new AbortController();
       abortRef.current = ac;
