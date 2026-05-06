@@ -49,13 +49,15 @@ export default defineConfig({
         `${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
     },
     rollupOptions: {
+      // `nanoid` is intentionally NOT externalised: v5 is ESM-only, so
+      // bundling it inline keeps the CJS output (`dist/index.cjs`) loadable
+      // from consumer projects that still use `require()`.
       external: [
         'react',
         'react-dom',
         'react/jsx-runtime',
         'react/jsx-dev-runtime',
         '@tanstack/react-query',
-        'nanoid',
       ],
       output: {
         globals: {

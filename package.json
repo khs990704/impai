@@ -81,11 +81,9 @@
       "optional": false
     }
   },
-  "dependencies": {
-    "nanoid": "^5.0.7"
-  },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^11.1.4",
+    "nanoid": "^5.0.7",
     "@storybook/addon-a11y": "^8.2.9",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-interactions": "^8.2.9",
